@@ -52,12 +52,14 @@ function multiplicar(x,y,z){
 multiplicar(2,3);
 
 // Qual o resultado da invocação acima? (Use comentários para mostrar o valor retornado).
+
 //'Preencha todos os valores corretamente!'
 
 // Agora invoque novamente a função criada acima, mas passando todos os três argumentos necessários.
 multiplicar(2,3,5);
 
 // Qual o resultado da invocação acima? (Use comentários para mostrar o valor retornado).
+
 //'302'
 
 /*
@@ -84,6 +86,7 @@ function testar(x,y,z){
 }
 
 // Invoque a função acima utilizando todas as possibilidades (com nenhum argumento, com um, com dois e com três.) Coloque um comentário de linha ao lado da função com o resultado de cada invocação.
+
 testar(); //false
 testar(10); //10
 testar(10,5); //15
