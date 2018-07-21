@@ -159,7 +159,7 @@ pessoa.andando; //false
 Quantos metros a pessoa andou? (Use uma instrução para responder e comentários
 inline ao lado da instrução para mostrar a resposta retornada)
 */
-pessoa.caminhouQuantosMetros; //420
+pessoa.caminhouQuantosMetros; //320
 
 /*
 Agora vamos deixar a brincadeira um pouco mais divertida! :D
