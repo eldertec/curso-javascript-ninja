@@ -17,15 +17,15 @@ As propriedades e tipos de valores para cada propriedade desse objeto devem ser:
 - `caminhouQuantosMetros` - Number - recebe "zero" por padrão
 */
 var pessoa = {
-    nome : 'Clara',
-    sobrenome : 'Verano',
-    sexo : 'feminino',
-    idade : 20,
-    altura : 1.60,
-    peso : 60,
+    nome : 'Élder',
+    sobrenome : 'Rezende',
+    sexo : 'masculino',
+    idade : 38,
+    altura : 1.80,
+    peso : 120,
     andando : false,
     caminhouQuantosMetros : 0
-}
+};
 
 /*
 Adicione um método ao objeto `pessoa` chamado `fazerAniversario`. O método deve
@@ -34,7 +34,7 @@ for chamado.
 */
 pessoa.fazerAniversario = function(){
     pessoa.idade++;
-}
+};
 
 /*
 Adicione um método ao objeto `pessoa` chamado `andar`, que terá as seguintes
@@ -49,7 +49,7 @@ booleano que representa "verdadeiro";
 pessoa.andar = function(m){
     pessoa.caminhouQuantosMetros += m;
     pessoa.andando = true;
-}
+};
 
 /*
 Adicione um método ao objeto `pessoa` chamado `parar`, que irá modificar o valor
@@ -57,7 +57,7 @@ da propriedade `andando` para o valor booleano que representa "falso".
 */
 pessoa.parar = function(){
     pessoa.andando = false;
-}
+};
 
 /*
 Crie um método chamado `nomeCompleto`, que retorne a frase:
@@ -65,7 +65,7 @@ Crie um método chamado `nomeCompleto`, que retorne a frase:
 */
 pessoa.nomeCompleto = function(){
     return 'Olá! Meu nome é ' + pessoa.nome + ' ' + pessoa.sobrenome + '!';
-}
+};
 
 /*
 Crie um método chamado `mostrarIdade`, que retorne a frase:
@@ -73,7 +73,7 @@ Crie um método chamado `mostrarIdade`, que retorne a frase:
 */
 pessoa.mostrarIdade = function(){
     return 'Olá, eu tenho ' + pessoa.idade + ' anos!';
-}
+};
 
 /*
 Crie um método chamado `mostrarPeso`, que retorne a frase:
@@ -81,7 +81,7 @@ Crie um método chamado `mostrarPeso`, que retorne a frase:
 */
 pessoa.mostrarPeso = function(){
     return 'Eu peso ' + pessoa.peso + 'Kg.';
-}
+};
 
 /*
 Crie um método chamado `mostrarAltura` que retorne a frase:
@@ -89,32 +89,32 @@ Crie um método chamado `mostrarAltura` que retorne a frase:
 */
 pessoa.mostrarAltura = function(){
     return 'Minha altura é ' + pessoa.altura +'m.';
-}
+};
 
 /*
 Agora vamos brincar um pouco com o objeto criado:
 Qual o nome completo da pessoa? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
 */
-pessoa.nomeCompleto(); //'Olá! Meu nome é Clara Verano!'
+pessoa.nomeCompleto(); //'Olá! Meu nome é Élder Rezende!'
 
 /*
 Qual a idade da pessoa? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
 */
-pessoa.mostrarIdade(); //'Olá, eu tenho 20 anos!'
+pessoa.mostrarIdade(); //'Olá, eu tenho 38 anos!'
 
 /*
 Qual o peso da pessoa? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
 */
-pessoa.mostrarPeso(); //'Eu peso 60Kg.'
+pessoa.mostrarPeso(); //'Eu peso 120Kg.'
 
 /*
 Qual a altura da pessoa? (Use a instrução para responder e comentários
 inline ao lado da instrução para mostrar qual foi a resposta retornada)
 */
-pessoa.mostrarAltura(); //'Minha altura é 1.6m.'
+pessoa.mostrarAltura(); //'Minha altura é 1.8m.'
 
 /*
 Faça a `pessoa` fazer 3 aniversários.
@@ -128,7 +128,7 @@ Quantos anos a `pessoa` tem agora? (Use a instrução para responder e
 comentários inline ao lado da instrução para mostrar qual foi a resposta
 retornada)
 */
-pessoa.mostrarIdade(); //'Olá, eu tenho 23 anos!'
+pessoa.mostrarIdade(); //'Olá, eu tenho 41 anos!'
 
 /*
 Agora, faça a `pessoa` caminhar alguns metros, invocando o método `andar` 3x,
@@ -193,8 +193,9 @@ pessoa.apresentacao = function(){
     }
     return 'Olá, eu sou ' + genero + ' ' + pessoa.nome + ' ' + pessoa.sobrenome + ', tenho ' + pessoa.idade + ' ' + flexao +', ' +
     pessoa.altura + 'm de altura, meu peso é ' + pessoa.peso + 'kg e, só hoje, eu já caminhei ' + pessoa.caminhouQuantosMetros + ' ' + distancia + '!';
-}
+};
 
 // Agora, apresente-se ;)
 pessoa.apresentacao();
-```
+
+//'Olá, eu sou o Élder Rezende, tenho 41 anos, 1.8m de altura, meu peso é 120kg e, só hoje, eu já caminhei 320 metros!'
