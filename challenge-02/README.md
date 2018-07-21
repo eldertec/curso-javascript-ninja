@@ -9,10 +9,10 @@ function somar(x,y){
 }
 
 // Declare uma variável que receba a invocação da função criada acima, passando dois números quaisquer por argumento, e somando `5` ao resultado retornado da função.
-var a = somar(3,3) + '5';
+var a = somar(3,3) + 5;
 
 // Qual o valor atualizado dessa variável?
-'65'
+11
 
 // Declare uma nova variável, sem valor.
 var b;
@@ -31,6 +31,7 @@ function retornar(){
 retornar();
 
 // Qual o retorno da função? (Use comentários de bloco).
+
 /*'O valor da variável agora é 10'*/
 
 /*
@@ -41,11 +42,10 @@ Crie uma função com as seguintes características:
 3. O retorno da função deve ser a multiplicação dos 3 argumentos, somando `2` ao resultado da multiplicação.
 */
 function multiplicar(x,y,z){
-    if(x == null || y == null || z == null){
+    if(x === undefined || y === undefined || z === undefined){
         return 'Preencha todos os valores corretamente!';
-    }else{
-        return (x * y * z) + '2';
     }
+    return (x * y * z) + 2;  
 }
 
 // Invoque a função criada acima, passando só dois números como argumento.
@@ -60,7 +60,7 @@ multiplicar(2,3,5);
 
 // Qual o resultado da invocação acima? (Use comentários para mostrar o valor retornado).
 
-//'302'
+//32
 
 /*
 Crie uma função com as seguintes características:
@@ -72,13 +72,13 @@ Crie uma função com as seguintes características:
 6. E ainda, se nenhuma das condições acima forem atendidas, retorne `null`.
 */
 function testar(x,y,z){
-    if(x != null && y == null && z == null){
+    if(x !== undefined && y === undefined && z === undefined){
         return x;
-    }else if(x != null && y != null && z == null){
+    }else if(x !== undefined && y !== undefined && z === undefined){
         return x + y;
-    }else if(x != null && y != null && z != null){
+    }else if(x !== undefined && y !== undefined && z !== undefined){
         return (x + y) / z;
-    }else if(x == null && y == null && z == null){
+    }else if(x === undefined && y === undefined && z === undefined){
         return false;
     }else{
         return null;
