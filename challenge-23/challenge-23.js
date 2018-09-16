@@ -1,3 +1,5 @@
+(function(win,doc){
+  'use strict';
 /*
 Vamos desenvolver mais um projeto. A ideia é fazer uma mini-calculadora.
 As regras são:
@@ -23,3 +25,75 @@ multiplicação (x), então no input deve aparecer "1+2x".
 input;
 - Ao pressionar o botão "CE", o input deve ficar zerado.
 */
+var $visor = doc.querySelector('[data-js="visor"]');
+var $resultado = doc.querySelector('[data-js="equal"]');
+var $buttonLimpar = doc.querySelector('[data-js="CE"]');
+var $buttonNumbers = doc.querySelectorAll('[data-js="button-numbers"]');
+var $buttonOperations = doc.querySelectorAll('[data-js="button-operation"]');
+
+Array.prototype.forEach.call($buttonNumbers, function(button){
+  button.addEventListener('click',numeroClicado,false);
+});
+
+Array.prototype.forEach.call($buttonOperations, function(button){
+  button.addEventListener('click',operacaoClicada,false);
+});
+
+$buttonLimpar.addEventListener('click',limpar,false);
+$resultado.addEventListener('click',retornarResultado,false);
+
+function numeroClicado(){
+  $visor.value += this.value;
+}
+
+function operacaoClicada(){
+  $visor.value = removeUltimo($visor.value);
+  $visor.value += this.value;
+}
+
+function ultimaOperacao(numero){
+  var operation = ['/','*','-','+'];
+  var ultimoItem = numero.split('').pop();
+  return operation.some(function(operador){
+    return operador === ultimoItem;
+  });
+}
+
+function removeUltimo(numero){
+  if(ultimaOperacao(numero)){
+    return numero.slice(0,-1);
+  }
+  return numero;
+}
+
+
+function limpar(){
+  $visor.value = 0;
+}
+
+function retornarResultado(){
+  $visor.value = removeUltimo($visor.value);
+  var valores = $visor.value.match(/\d+[/*-+]?/g);
+  $visor.value = valores.reduce(function(acumulado,atual){
+    var valor1 = acumulado.slice(0,-1);
+    var operador = acumulado.split('').pop();
+    var valor2 = removeUltimo(atual);
+    var novoOperador = ultimaOperacao(atual) ? atual.split('').pop() : '';
+    switch(operador){
+      case '+':
+      return (Number(valor1) + Number(valor2)) + novoOperador;
+
+      case '-':
+      return (Number(valor1) - Number(valor2)) + novoOperador;
+
+      case '*':
+      return (Number(valor1) * Number(valor2)) + novoOperador;
+
+      case '/':
+      return (Number(valor1) / Number(valor2)) + novoOperador;
+    }
+  });
+
+}
+
+})(window,document);
