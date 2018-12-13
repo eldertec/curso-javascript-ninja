@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Challenge 28</title>
+</head>
+<body>
+  <form data-js="form-cep">
+    <label for="cep">CEP:
+    <input type="text" id="cep" data-js="input-cep"></label>
+    <button type="submit">Buscar</button>
+  </form>
+
+  <div>
+    <h3 data-js="status"></h3>
+  </div>
+
+  <div data-js="cep-info">
+    <form data-js="form-info-cep">
+      <p>
+        <label for="log"><strong>Logradouro</strong>
+          <input type="text" id="log" data-js="logradouro" readonly>
+        </label>
+      </p>
+      <p>
+        <label for="bairro"><strong>Bairro</strong>
+          <input type="text" id="bairro" data-js="bairro" readonly>
+        </label>
+      </p>
+      <p>
+        <label for="est"><strong>Estado</strong>
+          <input type="text" id="est" data-js="estado" readonly>
+        </label>
+      </p>
+      <p>
+        <label for="cid"><strong>Cidade</strong>
+          <input type="text" id="cid" data-js="cidade" readonly>
+        </label>
+      </p>
+      <p>
+        <label for="cep2"><strong>CEP</strong>
+          <input type="text" id="cep2" data-js="cep" readonly>
+        </label>
+      </p>
+    </form>
+  </div>
+
+  <script src="dom.js"></script>
+  <script src="challenge-28.js"></script>
+</body>
+</html>
