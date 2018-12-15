@@ -1,4 +1,4 @@
-(function() {
+(function($,doc) {
   'use strict';
 
   /*
@@ -36,4 +36,75 @@
   que será nomeado de "app".
   */
 
-})();
+  var app = (function controller(){
+    return {
+      init: function init(){
+        this.companyInfo();
+        this.initEvents();
+      },
+
+      initEvents: function initEvents(){
+        $('[data-js="form-register"]').on('submit',this.handleSubmit);
+      },
+
+      handleSubmit: function handleSubmit(event){
+        event.preventDefault();
+        var $tableCar = $('[data-js="table-car"]').get();
+        $tableCar.appendChild(app.createNewCar());
+        $('[data-js="form-register"]').get().reset();
+      },
+
+      createNewCar: function createNewCar(){
+        var $fragment = doc.createDocumentFragment();
+        var $tr = doc.createElement('tr');
+        var $tdImagem = doc.createElement('td');
+        var $tdMarca = doc.createElement('td');
+        var $tdPlaca = doc.createElement('td');
+        var $tdAno = doc.createElement('td');
+        var $tdCor = doc.createElement('td');
+
+        var $image = doc.createElement('img');
+        $image.src = $('[data-js="imagem"]').get().value;
+        $tdImagem.appendChild($image);
+
+        $tdMarca.textContent = $('[data-js="marca"]').get().value;
+        $tdPlaca.textContent = $('[data-js="placa"]').get().value;
+        $tdAno.textContent = $('[data-js="ano"]').get().value;
+        $tdCor.textContent = $('[data-js="cor"]').get().value;
+
+        $tr.appendChild($tdImagem);
+        $tr.appendChild($tdMarca);
+        $tr.appendChild($tdAno);
+        $tr.appendChild($tdPlaca);
+        $tr.appendChild($tdCor);
+
+
+        return $fragment.appendChild($tr);
+      },
+
+      companyInfo: function companyInfo(){
+        var ajax = new XMLHttpRequest();
+        ajax.open('GET', 'company.json',true);
+        ajax.send();
+        ajax.addEventListener('readystatechange',this.getCompanyInfo,false);
+      },
+
+      getCompanyInfo: function getCompanyInfo(){
+        if(!app.isReady.call(this))
+          return;
+
+        var data = JSON.parse(this.responseText);
+        var $companyName = $('[data-js="company-name"]').get();
+        var $companyPhone = $('[data-js="company-phone"]').get();
+        $companyName.textContent = data.name;
+        $companyPhone.textContent = data.phone;
+      },
+
+      isReady: function isReady(){
+        return this.readyState === 4 && this.status === 200;
+      }
+    }
+  })();
+
+  app.init();
+})(window.DOM,document);

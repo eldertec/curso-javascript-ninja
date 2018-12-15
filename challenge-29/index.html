@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="estilo.css">
+  <title>Magaren</title>
+</head>
+<body>
+  <header>
+    <h1>
+      <span data-js="company-name"></span> -
+      <span data-js="company-phone"></span>
+    </h1>
+  </header>
+
+  <form action="/" data-js="form-register">
+    <ul>
+      <li>
+        <label for="img">Imagem:</label>
+        <input type="url" id="img" data-js="imagem">
+      </li>
+      <li>
+        <label for="mar">Marca/Modelo:</label>
+        <input type="text" id="mar" data-js="marca">
+      </li>
+      <li>
+        <label for="ano">Ano:</label>
+        <input type="text" id="ano" data-js="ano">
+      </li>
+      <li>
+        <label for="pla">Placa:</label>
+        <input type="text" id="pla" data-js="placa">
+      </li>
+      <li>
+        <label for="cor">Cor:</label>
+        <input type="text" id="cor" data-js="cor">
+      </li>
+      <button type="submit">Cadastrar</button>
+    </ul>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Imagem</th>
+        <th>Marca/Modelo</th>
+        <th>Ano</th>
+        <th>Placa</th>
+        <th>Cor</th>
+      </tr>
+    </thead>
+    <tbody data-js="table-car">
+
+    </tbody>
+  </table>
+
+  <script src="dom.js"></script>
+  <script src="challenge-29.js"></script>
+</body>
+</html>
